@@ -1,0 +1,14 @@
+# Smithery start configuration for the Phalange restaurant-inspection
+# MCP server (stdio, zero dependencies — needs Node.js 18+).
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      apiKey:
+        type: string
+        description: "Phalange API key (optional — a public demo key is built into the server)"
+  commandFunction: |-
+    (config) => ({ command: 'node', args: ['mcp-server.mjs'], env: config.apiKey ? { PHALANGE_API_KEY: config.apiKey } : {} })
+  exampleConfig:
+    apiKey: ""
