@@ -24,7 +24,7 @@
     { "name": "restaurant_search", "description": "Search restaurant venues in one metro by name" },
     { "name": "restaurant_venue_detail", "description": "One venue's inspection history and latest violation lines" },
     { "name": "restaurant_risk_summary", "description": "Per-metro inspection/failure aggregates for a time window" },
-    { "name": "nursing_facility_lookup", "description": "Nursing home by name: identity, status, CMS star ratings with as-of, latest survey, stored penalty totals — dated by its extract snapshot" },
+    { "name": "nursing_facility_lookup", "description": "Nursing home by name: identity, status, CMS star ratings with as-of, latest survey, deficiency count — dated by its extract snapshot (penalty fields are not in the current extract)" },
     { "name": "nursing_search", "description": "Browse nursing homes by state, city, or ZIP in the dated extract" },
     { "name": "nursing_state_summary", "description": "Per-state aggregates computed from the nursing extract itself, dated by its snapshot" },
     { "name": "schools_school_lookup", "description": "Public school by name (MA + TX): identity, enrollment, and the state's own published proficiency percentages — dated by its extract snapshot" },
