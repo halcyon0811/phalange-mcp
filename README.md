@@ -80,6 +80,16 @@ point at it instead of spawning the file locally. Set `PHALANGE_API_KEY`
 in the server's environment to use a non-demo key, and
 `PHALANGE_CLIENT_TAG` to label your traffic in the API's metering.
 
+## Umbrella server (all three verticals)
+
+The `umbrella/` directory carries the umbrella Phalange server
+(`phalange-mcp.mjs`): the four restaurant tools above, plus
+nursing-home and public-school tool groups that read dated data
+extracts published by those lines. It is prepared for a new registry
+entry, `com.phalangeai/phalange`, and is **not yet published** —
+publication is held until both real extracts are wired and verified.
+See `umbrella/README.md` for the design and the caliber rules.
+
 ## Agent Skill
 
 `agent-skill.md` is a ready-made restaurant due-diligence skill

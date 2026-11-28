@@ -1,0 +1,35 @@
+{
+  "manifest_version": "0.3",
+  "name": "phalange",
+  "display_name": "Phalange — Inspections & Public Records",
+  "version": "1.0.0",
+  "description": "One MCP server for Phalange's three public-record verticals: restaurant health inspections (live API), nursing-home records and public-school data (dated extracts published by each line).",
+  "long_description": "The umbrella Phalange server. Restaurant tools proxy the live API at eat.phalangeai.com (9 US metros; a compliance lookup that answers with coverage_status — not_covered means no data, never 'clean'). Nursing-home and school tools read versioned data extracts that each Phalange line publishes on its own domain; the server verifies each extract's manifest (schema version + sha256) on first use and dates every answer with a data_snapshot block (extract version, generation time, source vintage). Nursing records carry CMS's own star ratings with their as-of date; school records carry each state's own published proficiency measures — no composite score or ranking is computed anywhere.",
+  "author": { "name": "Phalange" },
+  "homepage": "https://phalangeai.com",
+  "documentation": "https://eat.phalangeai.com/api-docs.html",
+  "license": "MIT",
+  "keywords": ["restaurant", "health inspection", "nursing home", "schools", "open data", "due diligence"],
+  "server": {
+    "type": "node",
+    "entry_point": "phalange-mcp.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/phalange-mcp.mjs"],
+      "env": {}
+    }
+  },
+  "tools": [
+    { "name": "restaurant_compliance_lookup", "description": "Restaurant compliance lookup by name + address: coverage status, latest inspection, violations, closure status" },
+    { "name": "restaurant_search", "description": "Search restaurant venues in one metro by name" },
+    { "name": "restaurant_venue_detail", "description": "One venue's inspection history and latest violation lines" },
+    { "name": "restaurant_risk_summary", "description": "Per-metro inspection/failure aggregates for a time window" },
+    { "name": "nursing_facility_lookup", "description": "Nursing home by name: identity, status, CMS star ratings with as-of, latest survey, stored penalty totals — dated by its extract snapshot" },
+    { "name": "nursing_search", "description": "Browse nursing homes by state, city, or ZIP in the dated extract" },
+    { "name": "nursing_state_summary", "description": "Per-state aggregates computed from the nursing extract itself, dated by its snapshot" },
+    { "name": "schools_school_lookup", "description": "Public school by name (MA + TX): identity, enrollment, and the state's own published proficiency percentages — dated by its extract snapshot" },
+    { "name": "schools_search", "description": "Browse schools by state, district, city, or level in the dated extract" },
+    { "name": "schools_compare", "description": "2–4 schools side by side on published figures only — no composite, no ranking, no winner" }
+  ],
+  "compatibility": { "platforms": ["darwin", "win32", "linux"], "runtimes": { "node": ">=18.0.0" } }
+}
