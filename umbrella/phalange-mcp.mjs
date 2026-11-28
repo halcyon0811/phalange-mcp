@@ -95,7 +95,7 @@ const TOOLS = [
   {
     name: "nursing_facility_lookup",
     description:
-      "Find a nursing home by name (optionally narrowed by state or city) in the Phalange nursing-home extract: identity, status, CMS's own star ratings with their as-of date, latest survey date, latest-survey deficiency count, and stored penalty totals. Every answer carries a data_snapshot block dating it to its extract. A facility absent from the extract is reported as not found — never as clean or compliant.",
+      "Find a nursing home by name (optionally narrowed by state or city) in the Phalange nursing-home extract: identity, status, CMS's own star ratings with their as-of date, latest survey date, latest-survey deficiency count, and stored penalty totals when the extract carries penalty fields (the current extract does not include them, and answers say so rather than reporting zero). Every answer carries a data_snapshot block dating it to its extract. A facility absent from the extract is reported as not found — never as clean or compliant.",
     inputSchema: {
       type: "object",
       properties: {
@@ -123,7 +123,7 @@ const TOOLS = [
   {
     name: "nursing_state_summary",
     description:
-      "Per-state aggregates computed from the nursing-home extract itself: facility count and status split, CMS star distribution (including how many facilities CMS publishes no overall rating for), and stored penalty totals. Labelled as extract-derived and dated by the data_snapshot block.",
+      "Per-state aggregates computed from the nursing-home extract itself: facility count and status split, CMS star distribution (including how many facilities CMS publishes no overall rating for), and stored penalty totals when the extract carries penalty fields (not in the current extract — reported as not included, never as zero). Labelled as extract-derived and dated by the data_snapshot block.",
     inputSchema: {
       type: "object",
       properties: { state: { type: "string", description: "2-letter state code." } },
