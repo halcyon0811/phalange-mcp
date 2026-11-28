@@ -220,7 +220,7 @@ const EXTRACT_SOURCES = {
     url: process.env.PHALANGE_NURSING_EXTRACT_URL ?? "https://nursing.phalangeai.com/mcp-data/nursing-extract.jsonl",
   },
   schools: {
-    url: process.env.PHALANGE_SCHOOLS_EXTRACT_URL ?? "https://schools.phalangeai.com/mcp-data/schools-extract.jsonl",
+    url: process.env.PHALANGE_SCHOOLS_EXTRACT_URL ?? "https://schools.phalangeai.com/schools-extract.jsonl",
   },
 };
 const extractCache = new Map();

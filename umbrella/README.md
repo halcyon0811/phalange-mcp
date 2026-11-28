@@ -24,11 +24,15 @@ source_vintage }`. An answer that cannot be dated is not served; if a
 vertical's extract cannot be loaded, only that vertical's tools
 refuse — the rest keep working.
 
-Proposed default extract locations (each line confirms or replaces
-its own path at publish time; the final paths are recorded here):
+Default extract locations (each line confirms or replaces its own
+path at publish time; the final paths are recorded here):
 
 - Nursing: `https://nursing.phalangeai.com/mcp-data/nursing-extract.jsonl`
-- Schools: `https://schools.phalangeai.com/mcp-data/schools-extract.jsonl`
+  (proposed; the extract itself is published in the nursing line's
+  repository, and this domain path is confirmed when the nursing
+  line publishes it there)
+- Schools: `https://schools.phalangeai.com/schools-extract.jsonl`
+  (confirmed — live, extractVersion schools-20261127-1)
 
 Both are overridable per deployment: `PHALANGE_NURSING_EXTRACT_URL`,
 `PHALANGE_SCHOOLS_EXTRACT_URL`. The restaurant group takes
@@ -61,7 +65,9 @@ pointing at `phalange-mcp.mjs`.
 
 This package is prepared for a NEW registry entry,
 `com.phalangeai/phalange` (see `server.json` in this directory). It
-is **not yet published**: publication is held until both real
-extracts are wired and the dated-answer smoke test passes against
-them. The existing `com.phalangeai/restaurant-inspections` entry is
-unaffected and remains the listing for the restaurant-only package.
+is **not yet published**. Both real extracts are now wired and the
+dated-answer smoke test passes against them (nursing-20261127-1,
+schools-20261127-1; verified 2026-11-27); publication itself is the
+repository owner's registry action. The existing
+`com.phalangeai/restaurant-inspections` entry is unaffected and
+remains the listing for the restaurant-only package.

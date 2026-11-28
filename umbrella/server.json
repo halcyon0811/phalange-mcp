@@ -12,7 +12,7 @@
           "name": "PHALANGE_API_KEY"
         }
       ],
-      "fileSha256": "2a98fd38d0723dd0fd0f396c7e8498f0c941ffc3403fa54579b7c6c59f97c50b",
+      "fileSha256": "4d9f9513fd21abd2ca20a07d790f7f4ba42acb6f09a3be9fb21b4114d01137f0",
       "identifier": "https://github.com/halcyon0811/phalange-mcp/releases/download/umbrella-v1.0.0/phalange-umbrella.mcpb",
       "registryType": "mcpb",
       "transport": {
