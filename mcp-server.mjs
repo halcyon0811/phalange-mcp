@@ -33,6 +33,8 @@ import { createInterface } from "node:readline";
 const BASE = process.env.PHALANGE_API_BASE ?? "https://eat.phalangeai.com";
 const API_KEY = process.env.PHALANGE_API_KEY ?? "demo-phalange";
 const PROTOCOL = "2024-11-05";
+const VERSION = "1.0.0";
+const CLIENT_TAG = process.env.PHALANGE_CLIENT_TAG?.trim() || `mcp-server/${VERSION}`;
 
 const TOOLS = [
   {
@@ -94,7 +96,7 @@ const TOOLS = [
 
 async function callApi(path) {
   const res = await fetch(`${BASE}${path}`, {
-    headers: { Authorization: `Bearer ${API_KEY}`, Accept: "application/json" },
+    headers: { Authorization: `Bearer ${API_KEY}`, Accept: "application/json", "X-Phalange-Client": CLIENT_TAG },
   });
   const text = await res.text();
   let body;
@@ -138,7 +140,7 @@ async function handleMessage(msg) {
       return reply({
         protocolVersion: msg.params?.protocolVersion ?? PROTOCOL,
         capabilities: { tools: {} },
-        serverInfo: { name: "phalange-restaurant-inspection", version: "1.0.0" },
+        serverInfo: { name: "phalange-restaurant-inspection", version: VERSION },
       });
     case "ping":
       return isNotification ? null : reply({});

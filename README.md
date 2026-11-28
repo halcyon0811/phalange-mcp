@@ -53,6 +53,33 @@ claude mcp add phalange-inspections -- node /path/to/mcp-server.mjs
 }
 ```
 
+### Windsurf
+
+Add the same block to `~/.codeium/windsurf/mcp_config.json` (Windsurf uses
+the `mcpServers` shape above).
+
+### VS Code (`.vscode/mcp.json` or user `mcp.json`)
+
+```json
+{
+  "servers": {
+    "phalange-inspections": {
+      "command": "node",
+      "args": ["/path/to/mcp-server.mjs"]
+    }
+  }
+}
+```
+
+### Remote / hosted (Streamable HTTP)
+
+The same file serves stateless Streamable HTTP when started with
+`node mcp-server.mjs --http --port 8787` (endpoint: `POST /mcp`). Host it
+anywhere Node 18+ runs; clients that accept a remote MCP URL can then
+point at it instead of spawning the file locally. Set `PHALANGE_API_KEY`
+in the server's environment to use a non-demo key, and
+`PHALANGE_CLIENT_TAG` to label your traffic in the API's metering.
+
 ## Agent Skill
 
 `agent-skill.md` is a ready-made restaurant due-diligence skill
@@ -62,6 +89,6 @@ closure signals, sourced conclusions. Also served at
 
 ## License & data notes
 
+The server code in this repository is MIT-licensed (see `LICENSE`).
 Inspection records are public data from the publishing agencies;
-see each record's `source_url`. The server code in this repository
-may be used freely.
+see each record's `source_url`.

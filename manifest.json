@@ -1,0 +1,29 @@
+{
+  "manifest_version": "0.3",
+  "name": "phalange-restaurant-inspections",
+  "display_name": "Phalange Restaurant Inspections",
+  "version": "1.0.0",
+  "description": "Official restaurant health-inspection records for 9 US metros: compliance lookup by name + address, venue search, inspection detail, and risk summaries.",
+  "long_description": "Gives agents access to official restaurant health-inspection records served by eat.phalangeai.com (Boston, New York City, Chicago, Austin, Los Angeles County, Santa Clara County, Las Vegas / Clark County, Miami-Dade, Cambridge MA), from city/county open-data feeds refreshed daily. The headline tool is a compliance lookup that answers with a coverage_status (not_covered means no data, never 'clean'), match confidence, latest result, violation and critical-violation counts, closure status, and the official source URL.",
+  "author": { "name": "Phalange" },
+  "homepage": "https://eat.phalangeai.com/api-docs.html",
+  "documentation": "https://eat.phalangeai.com/api-docs.html",
+  "license": "MIT",
+  "keywords": ["restaurant", "health inspection", "food safety", "open data", "due diligence"],
+  "server": {
+    "type": "node",
+    "entry_point": "mcp-server.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/mcp-server.mjs"],
+      "env": {}
+    }
+  },
+  "tools": [
+    { "name": "restaurant_compliance_lookup", "description": "Compliance lookup by business name + address: coverage status, match confidence, latest inspection, critical violations, closure status" },
+    { "name": "restaurant_search", "description": "Search restaurant venues in one metro by name" },
+    { "name": "restaurant_venue_detail", "description": "One venue's inspection history and latest violation lines" },
+    { "name": "restaurant_risk_summary", "description": "Per-metro inspection/failure aggregates for a time window" }
+  ],
+  "compatibility": { "platforms": ["darwin", "win32", "linux"], "runtimes": { "node": ">=18.0.0" } }
+}
