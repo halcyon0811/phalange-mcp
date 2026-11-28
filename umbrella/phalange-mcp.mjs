@@ -304,14 +304,17 @@ const EXTRACT_CALLS = {
     const st = String(a.state).toUpperCase();
     const rows = records.filter((r) => r.state === st);
     const stars = { "1": 0, "2": 0, "3": 0, "4": 0, "5": 0, not_rated: 0 };
-    let penaltyCount = 0, penaltyTotal = 0, closed = 0;
+    let penaltyCount = 0, penaltyTotal = 0, closed = 0, penaltiesPresent = false;
     for (const r of rows) {
       const o = r.cmsStars?.overall;
       if (o == null) stars.not_rated++; else stars[String(o)] = (stars[String(o)] ?? 0) + 1;
       if (r.status === "closed") closed++;
-      if (r.penalties) { penaltyCount += r.penalties.count ?? 0; penaltyTotal += r.penalties.totalAmount ?? 0; }
+      if (r.penalties) { penaltiesPresent = true; penaltyCount += r.penalties.count ?? 0; penaltyTotal += r.penalties.totalAmount ?? 0; }
     }
-    return { data_snapshot: snapshot, derived_from: "the extract itself", state: st, facilities: rows.length, closed, cms_overall_stars: stars, penalties_stored: { count: penaltyCount, total_amount: penaltyTotal } };
+    // Penalty fields may be struck from an extract (e.g. pending a
+    // data audit): absence must read as "not included", never as
+    // zero penalties.
+    return { data_snapshot: snapshot, derived_from: "the extract itself", state: st, facilities: rows.length, closed, cms_overall_stars: stars, penalties_stored: penaltiesPresent ? { count: penaltyCount, total_amount: penaltyTotal } : null, note: penaltiesPresent ? undefined : "Penalty fields are not included in this extract, so no penalty totals are reported." };
   },
   schools_school_lookup: async (a) => {
     const { records, snapshot } = await loadExtract("schools");
