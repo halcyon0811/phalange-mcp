@@ -18,10 +18,11 @@ Tree contents (all verified against the live surface 2026-11-27):
   apiKey config mapped to PHALANGE_API_KEY).
 - README.md — repo README + Windsurf and VS Code config blocks + a
   Streamable HTTP hosting section; license pointer fixed.
-- LICENSE — NEW: MIT for the server code (the repo previously said
-  "may be used freely" with no license file; directories surface
-  license metadata, and MIT is the standard reading of that intent —
-  flagging as the one content decision in this package).
+- LICENSE — HELD, not in the repo: an MIT text was prepared, but a
+  license is a legal grant on the owner's code and lands only on the
+  owner's explicit confirmation (coordination ruling 2026-11-27).
+  Until then the README carries the repo's original "may be used
+  freely" wording and no license file is present.
 - manifest.json — the MCPB manifest, unchanged from v1.0.0.
 - phalange-inspections.mcpb — REBUILT from the live server file.
   New sha256: c164d76f19ea6395e6f3fadfb87dea90bfeb9159e03d370a8cefef008694ce3f

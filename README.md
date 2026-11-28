@@ -89,6 +89,8 @@ closure signals, sourced conclusions. Also served at
 
 ## License & data notes
 
-The server code in this repository is MIT-licensed (see `LICENSE`).
+The server code in this repository may be used freely. (A formal
+license file is pending the owner's confirmation and is not yet
+included.)
 Inspection records are public data from the publishing agencies;
 see each record's `source_url`.
