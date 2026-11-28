@@ -1,1 +1,26 @@
-{"$schema":"https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json","description":"Restaurant inspection records for 9 US metros: compliance lookup, search, risk summaries.","name":"com.phalangeai/restaurant-inspections","packages":[{"environmentVariables":[{"description":"Phalange API key (optional — a public demo key is built into the server)","format":"string","isSecret":true,"name":"PHALANGE_API_KEY"}],"fileSha256":"d3cbb445feb8fb0285a1cadaa3e9b14d0f89258263c5c696c1bf5d52f1781e4f","identifier":"https://github.com/halcyon0811/phalange-mcp/releases/download/v1.0.0/phalange-inspections.mcpb","registryType":"mcpb","transport":{"type":"stdio"}}],"title":"Phalange Restaurant Inspections","version":"1.0.0","websiteUrl":"https://eat.phalangeai.com/api-docs.html"}
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "description": "Phalange's three public-record verticals in one server: restaurant inspections (live), nursing-home records and public-school data (dated extracts).",
+  "name": "com.phalangeai/phalange",
+  "packages": [
+    {
+      "environmentVariables": [
+        {
+          "description": "Phalange API key (optional \u2014 a public demo key is built into the server)",
+          "format": "string",
+          "isSecret": true,
+          "name": "PHALANGE_API_KEY"
+        }
+      ],
+      "fileSha256": "34c02a634e58215e7d2ba960d5ddab153c74489fd4a8a22b2e6b036e4c16b20c",
+      "identifier": "https://github.com/halcyon0811/phalange-mcp/releases/download/umbrella-v1.0.0/phalange-umbrella.mcpb",
+      "registryType": "mcpb",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "title": "Phalange",
+  "version": "1.0.0",
+  "websiteUrl": "https://phalangeai.com"
+}
